@@ -6,6 +6,7 @@ class Main{
         System.out.println("Commit 2/4");
         System.out.println("Commit 3/4");
         System.out.println("Commit 4/4");
+        System.out.println("Update for task 3");
     }
 
 }
