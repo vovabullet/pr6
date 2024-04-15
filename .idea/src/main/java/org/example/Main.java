@@ -4,6 +4,7 @@ class Main{
 
         System.out.println("Commit 1/4");
         System.out.println("Commit 2/4");
+        System.out.println("Commit 3/4");
     }
 
 }
