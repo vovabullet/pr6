@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Top</title>
+</head>
+<body>
+<h1>Top 3 rating</h1>
+<table border="separate" id="table">
+
+</table>
+<script>
+    function fetchData() {
+        fetch('/results')
+         .then(resp => resp.json())
+         .then(json => {
+            const tableElement = document.getElementById('table');
+            while (tableElement.firstChild) {
+                tableElement.removeChild(tableElement.firstChild);
+            }
+
+            for (var i = 0; i < json.length; i++) {
+                const trElement = document.createElement('tr');
+
+                const td1Element = document.createElement('td');
+                const td1Text = document.createTextNode(json[i]['name']);
+                td1Element.appendChild(td1Text);
+
+                const td2Element = document.createElement('td');
+                const td2Text = document.createTextNode(json[i]['voteCount']);
+                td2Element.appendChild(td2Text);
+
+                trElement.appendChild(td1Element);
+                trElement.appendChild(td2Element);
+
+                tableElement.appendChild(trElement);
+            }
+         });
+    }
+
+    setInterval(fetchData , 1000);
+</script>
+</body>
+</html>

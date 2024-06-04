@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Voting</title>
+</head>
+<body>
+<h1>Voting for best game of past year</h1>
+<table border="separate">
+    <tr th:each="game : ${games}">
+        <td th:text="${game.name}"></td>
+        <td>
+            <p th:text="${game.description}">Description: </p>
+            <p th:text="${game.publisher}">Publisher: </p>
+        </td>
+        <td>
+            <form method="POST" th:action="@{/vote}">
+                <input type="hidden" name="id" th:value="${game.id}"/>
+                <button type="submit">Vote</button>
+            </form>
+        </td>
+    </tr>
+</table>
+<a th:href="@{/add}">Add</a>
+</body>
+</html>
