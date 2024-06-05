@@ -40,7 +40,7 @@ public class MainController {
         return "redirect:/";
     }
 
-    // Временный метод для проверки всех ключей в Redis
+    // метод для проверки всех ключей в Redis
     @GetMapping("/checkRedisKeys")
     @ResponseBody
     public String checkRedisKeys() {
